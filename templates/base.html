@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,12 +7,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="{% static "css/style.css" %}">
     <title>Django Twitter</title>
 </head>
 
 <body>
+
     <nav class="blue lighten-1">
         <div class="nav-wrapper container">
             <a href="/" class="brand-logo">Django Twitter</a>
@@ -23,11 +26,23 @@
         </div>
     </nav>
 
-    <div class="container">
+    <div class="">
         {% block content %}
         {% endblock content %}
     </div>
 
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('.sidenav').sidenav();
+            $('.materialboxed').materialbox();
+            $('.parallax').parallax();
+        });
+    </script>
 </body>
 
 </html>
