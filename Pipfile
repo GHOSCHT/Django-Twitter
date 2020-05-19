@@ -9,6 +9,7 @@ verify_ssl = true
 gunicorn = "*"
 django = "*"
 autopep8 = "*"
+tweepy = "*"
 
 [requires]
 python_version = "3.8"
