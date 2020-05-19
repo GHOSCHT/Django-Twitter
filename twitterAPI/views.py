@@ -27,7 +27,6 @@ def home(request):
 def set_user(request):
     try:
         username = request.POST.get("username")
-
         response = HttpResponseRedirect("profile")
         response.set_cookie("twitter_username", username)
 
@@ -39,10 +38,26 @@ def set_user(request):
 
 def profile(request):
     try:
-        username = request.COOKIES.get('twitter_username')
+        username = request.COOKIES.get('twitter_username').lower()
+
     except:
-        username = "N/A"
-    return render(request, "twitterAPI/profile.html", {"username": username})
+        return HttpResponseRedirect("/")
+
+    if username[0] == "@":
+        username = username.replace("@", "")
+
+    user = apiLogin().get_user(username)
+
+    user_data = {"username": username,
+                 "display_name": user.name,
+                 "description": user.description,
+                 "profile_banner_url": user.profile_banner_url,
+                 "profile_avatar_url": user.profile_image_url.replace("_normal", ""),
+                 "follower_count": user.followers_count,
+                 "follow_count": user.friends_count,
+                 }
+
+    return render(request, "twitterAPI/profile.html", user_data)
 
 
 def followers(request):

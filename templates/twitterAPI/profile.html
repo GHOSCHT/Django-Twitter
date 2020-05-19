@@ -1,5 +1,11 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>{{username}}</h1>
+<img src="{{profile_banner_url}}" alt="banner">
+<h1>Username: @{{username}}</h1>
+<h1>Display Name: {{display_name}}</h1>
+<h1>Follower: {{follower_count}}</h1>
+<h1>Follows: {{follow_count}}</h1>
+<h1>Description: {{description}}</h1>
+<img src="{{profile_avatar_url}}" alt="banner">
 {% endblock content %}
