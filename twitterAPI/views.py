@@ -26,7 +26,7 @@ def home(request):
 
 def set_user(request):
     try:
-        username = request.POST.get("username")
+        username = request.POST.get("twitterHandle")
         response = HttpResponseRedirect("profile")
         response.set_cookie("twitter_username", username)
 
