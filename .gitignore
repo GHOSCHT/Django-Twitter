@@ -6,9 +6,6 @@ __pycache__
 db.sqlite3
 media
 
-# Twitter login #
-twitterLogin.py
-
 # Backup files # 
 *.bak 
 
