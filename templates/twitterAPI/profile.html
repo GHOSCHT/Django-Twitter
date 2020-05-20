@@ -5,62 +5,48 @@
     <div class="parallax"><img src="{{profile_banner_url}}"></div>
 </div>
 
-<div class="container">
-    <div class="row">
-        <div class="col s2">
+<div class="row">
+    <div class="col s12 m12 l4 xl2">
+        <div class="center">
             <img src="{{profile_avatar_url}}" alt="avatar" id="avatar">
         </div>
-
-        <div class="col s2">
-            <div class="center">
-                <i class="grey-text text-darken-4 large material-icons notSelectable">person</i>
-                <p>Username</p>
-                <p class="light center">@{{username}}</p>
-            </div>
-        </div>
-
-        <div class="col s2">
-            <div class="center">
-                <i class="grey-text text-darken-4 large material-icons notSelectable">group</i>
-                <p>Followers</p>
-                <p class="light center">{{follower_count}}</p>
-            </div>
-        </div>
-
-        <div class="col s2">
-            <div class="center">
-                <i class="grey-text text-darken-4 large material-icons notSelectable">group</i>
-                <p>Follows</p>
-                <p class="light center">{{follow_count}}</p>
-            </div>
-        </div>
-
-        <div class="col s4">
-            <div class="center">
-                <i class="grey-text text-darken-4 large material-icons notSelectable">menu_book</i>
-                <p>Bio</p>
-                <p class="light center" id="bio">{{description}}</p>
-            </div>
+    </div>
+    <div class="col s12 m12 l4 xl2">
+        <div class="center">
+            <i class="grey-text text-darken-4 large material-icons notSelectable">person</i>
+            <p>Username</p>
+            <p class="light center">@{{username}}</p>
         </div>
     </div>
+    <div class="col s12 m12 l4 xl2">
+        <div class="center">
+            <i class="grey-text text-darken-4 large material-icons notSelectable">group</i>
+            <p>Followers</p>
+            <p class="light center">{{follower_count}}</p>
+        </div>
+    </div>
+    <div class="col s12 m12 l4 xl2">
+        <div class="center">
+            <i class="grey-text text-darken-4 large material-icons notSelectable">group</i>
+            <p>Follows</p>
+            <p class="light center">{{follow_count}}</p>
+        </div>
+    </div>
+    <div class="col s12 m12 l4 xl3">
+        <div class="center">
+            <i class="grey-text text-darken-4 large material-icons notSelectable">menu_book</i>
+            <p>Bio</p>
+            <p class="light center" id="bio">{{description}}</p>
+        </div>
+    </div>
+</div>
 
+<div class="container">
     <div class="collection">
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
-        <a href="#!" class="collection-item grey-text text-darken-4">Alvin</a>
+        {% for post in user_timeline %}
+        <a href="https://twitter.com/{{username}}/status/{{post.id_str}}"
+            class="collection-item grey-text text-darken-4">{{post.text}}</a>
+        {% endfor %}
     </div>
 </div>
 {% endblock contentNoContainer %}

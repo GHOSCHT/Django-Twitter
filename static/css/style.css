@@ -8,6 +8,18 @@
     border-radius: 5%;
 }
 
+@media only screen and (max-width: 1200px) {
+    #avatar {
+        height: 400px;
+    }
+}
+
+@media only screen and (max-width: 992px) {
+    #avatar {
+        height: 180px;
+    }
+}
+
 .notSelectable {
     -webkit-user-select: none;
     -moz-user-select: none;
