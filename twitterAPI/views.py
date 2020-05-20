@@ -67,6 +67,9 @@ def set_user(request, urlUsername):
     else:
         username = urlUsername
 
+    if username[0] == "@":
+        username = username.replace("@", "")
+
     try:
         apiLogin().get_user(username)
         TwitterUser.objects.create(username=username)
