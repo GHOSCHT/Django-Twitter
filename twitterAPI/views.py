@@ -46,7 +46,8 @@ def profile(request):
     if username[0] == "@":
         username = username.replace("@", "")
 
-    user = apiLogin().get_user(username)
+    api = apiLogin()
+    user = api.get_user(username)
 
     user_data = {"username": username,
                  "display_name": user.name,
@@ -55,6 +56,7 @@ def profile(request):
                  "profile_avatar_url": user.profile_image_url.replace("_normal", ""),
                  "follower_count": user.followers_count,
                  "follow_count": user.friends_count,
+                 "user_timeline": api.user_timeline(username, count=100),
                  }
 
     return render(request, "twitterAPI/profile.html", user_data)
