@@ -52,20 +52,21 @@ def home(request):
     return render(request, "twitterAPI/home.html", {"searched_users": searched_users})
 
 
-def set_user(request):
-    try:
+def set_user(request, urlUsername):
+
+    if urlUsername == "form":
         username = request.POST.get("twitterHandle")
-        response = HttpResponseRedirect("profile")
+    else:
+        username = urlUsername
+
+    try:
+        apiLogin().get_user(username)
+        TwitterUser.objects.create(username=username)
+        response = HttpResponseRedirect("/profile")
         response.set_cookie("twitter_username", username)
 
-        try:
-            apiLogin().get_user(username)
-            TwitterUser.objects.create(username=username)
-        except:
-            response = HttpResponseRedirect("/")
-
     except:
-        response = render(request, "error.html")
+        response = HttpResponseRedirect("/")
 
     return response
 
