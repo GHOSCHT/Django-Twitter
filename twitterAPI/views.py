@@ -43,6 +43,14 @@ def getUser(username):
                  }
     return user_data
 
+
+def checkCookies(request):
+    try:
+        username = request.COOKIES.get('twitter_username').lower()
+        return username
+    except:
+        return None
+
 # Views
 
 
@@ -72,14 +80,8 @@ def set_user(request, urlUsername):
 
 
 def profile(request):
-    username = request.COOKIES.get('twitter_username').lower()
+    username = checkCookies(request)
+    if(username == None):
+        return HttpResponseRedirect("/")
     user_data = getUser(username)
     return render(request, "twitterAPI/profile.html", user_data)
-
-
-def followers(request):
-    return render(request, "twitterAPI/followers.html")
-
-
-def follows(request):
-    return render(request, "twitterAPI/follows.html")
