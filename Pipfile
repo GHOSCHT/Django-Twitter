@@ -10,6 +10,7 @@ gunicorn = "*"
 django = "*"
 autopep8 = "*"
 tweepy = "*"
+django-heroku = "*"
 
 [requires]
 python_version = "3.8"
