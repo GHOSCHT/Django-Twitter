@@ -9,4 +9,22 @@
         <i class="material-icons right">send</i>
     </button>
 </form>
+
+<div class="row container" id="searchedUsers">
+
+    {% for user in searched_users %}
+
+    <div class="col s12 l4">
+        <div class="card">
+            <div class="card-action">
+                <a href="https://twitter.com/{{user.username}}" class="grey-text text-darken-4">{{user.username}}</a>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+
+</div>
+
+<p></p>
 {% endblock contentContainer %}

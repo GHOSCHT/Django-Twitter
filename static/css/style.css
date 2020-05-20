@@ -10,11 +10,24 @@
 
 @media only screen and (max-width: 1200px) {
     #avatar {
-        height: 400px;
+        height: 380px;
     }
 }
 
 @media only screen and (max-width: 992px) {
+    #avatar {
+        height: 320px;
+    }
+}
+
+@media only screen and (max-width: 750px) {
+    #avatar {
+        margin-top: 50px;
+        height: 230px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
     #avatar {
         height: 180px;
     }
@@ -32,4 +45,8 @@
     text-overflow: ellipsis;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
+}
+
+#searchedUsers {
+    margin-top: 30px;
 }
