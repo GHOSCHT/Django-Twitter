@@ -2,6 +2,10 @@
     height: 400px;
 }
 
+.sidenav {
+    width: 220px;
+}
+
 #avatar {
     height: 180px;
     margin-top: 15px;
