@@ -4,8 +4,9 @@ from django.http import HttpResponseRedirect, HttpResponse
 from . import twitterLogin as loginData
 import tweepy
 import datetime
+import locale
 
-# Custom function
+# Custom functions
 
 
 def apiLogin():
@@ -54,19 +55,22 @@ def getUserData(username):
         profile_banner_url = "https://images.hdqwalls.com/download/abstract-minimal-blur-5k-jj-2560x1440.jpg"
         profile_avatar_url = "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"
 
+    locale.setlocale(locale.LC_ALL, '')
+
     user_data = {"username": username,
                  "display_name": user.name,
                  "description": user.description,
                  "profile_banner_url": profile_banner_url,
                  "profile_avatar_url": profile_avatar_url,
-                 "follower_count": user.followers_count,
-                 "follow_count": user.friends_count,
+                 "follower_count": f'{user.followers_count:n}',
+                 "follow_count": f'{user.friends_count:n}',
                  "user_timeline": api.user_timeline(username, count=200),
                  }
     return user_data
 
 
 # Views
+
 
 def home(request):
     return render(request, "twitterAPI/home.html")
