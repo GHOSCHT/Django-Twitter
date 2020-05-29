@@ -31,6 +31,14 @@
     #avatar {
         height: 180px;
     }
+
+    .brand-logo {
+        font-size: large !important;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
 }
 
 .nonSelectable {
