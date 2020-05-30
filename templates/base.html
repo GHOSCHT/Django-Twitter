@@ -14,41 +14,74 @@
 </head>
 
 <body>
-    <nav class="blue lighten-1">
-        <div class="nav-wrapper container">
-            <a href="{%url "home"%}" class="brand-logo">Django Twitter</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href="{%url "home"%}">Home</a></li>
-                <li><a href="{%url "profile"%}">Profile</a></li>
-            </ul>
+    <main>
+        <nav class="blue lighten-1">
+            <div class="nav-wrapper container">
+                <a href="{%url "home"%}" class="brand-logo">Django Twitter</a>
+                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="{%url "home"%}">Home</a></li>
+                    <li><a href="{%url "profile"%}">Profile</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <ul class="sidenav" id="mobile-demo">
+            <li><a href="{%url "home"%}">Home</a></li>
+            <li><a href="{%url "profile"%}">Profile</a></li>
+        </ul>
+
+        <div class="container">
+            {% block contentContainer %}
+            {% endblock contentContainer %}
         </div>
-    </nav>
 
-    <ul class="sidenav" id="mobile-demo">
-        <li><a href="{%url "home"%}">Home</a></li>
-        <li><a href="{%url "profile"%}">Profile</a></li>
-    </ul>
+        {% block contentNoContainer %}
+        {% endblock contentNoContainer %}
 
-    <div class="container">
-        {% block contentContainer %}
-        {% endblock contentContainer %}
-    </div>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 
-    {% block contentNoContainer %}
-    {% endblock contentNoContainer %}
+        <script>
+            $(document).ready(function () {
 
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+                $('.sidenav').sidenav();
+                $('.materialboxed').materialbox();
+                $('.parallax').parallax();
+            });
+        </script>
+    </main>
 
-    <script>
-        $(document).ready(function () {
+    <footer class="page-footer blue lighten-1">
+        <div class="container">
+            <div class="row">
+                <div class="col l6 s12">
+                    <h5 class="white-text">Project Description</h5>
+                    <p class="grey-text text-lighten-4">A Django based Twitter profile viewer</p>
+                </div>
+                <div class="col l4 offset-l2 s12">
+                    <h5 class="white-text">Social Media</h5>
+                    <ul>
+                        <li><a class="grey-text text-lighten-3" href="https://twitter.com/GHOSCHT">Twitter</a></li>
+                        <li>
+                            <a class="grey-text text-lighten-3" href="https://www.instagram.com/gh0scht/">Instagram</a>
+                        </li>
+                        <li>
+                            <a class="grey-text text-lighten-3"
+                                href="https://twitter.com/messages/compose?recipient_id=4726005016">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
 
-            $('.sidenav').sidenav();
-            $('.materialboxed').materialbox();
-            $('.parallax').parallax();
-        });
-    </script>
+        <div class="footer-copyright">
+            <div class="container">
+                © 2020 GHOSCHT
+                <a class="grey-text text-lighten-4 right" href="https://github.com/GHOSCHT">More Projects</a>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
