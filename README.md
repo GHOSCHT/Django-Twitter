@@ -1,6 +1,7 @@
 # Django-Twitter
 [![CodeFactor](https://www.codefactor.io/repository/github/ghoscht/django-twitter/badge)](https://www.codefactor.io/repository/github/ghoscht/django-twitter)
 [![Website shields.io](https://img.shields.io/website-up-down-green-red/http/shields.io.svg)](https://ghoschts-django-twitter.herokuapp.com/)
+[![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
 [![HitCount](http://hits.dwyl.com/GHOSCHT/Django-Twitter.svg)](http://hits.dwyl.com/GHOSCHT/Django-Twitter)
 
 # Requirements
