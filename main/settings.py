@@ -26,6 +26,7 @@ SECRET_KEY = os.environ.get("secret_key")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
+DEBUG_PROPAGATE_EXCEPTIONS = True
 
 ALLOWED_HOSTS = ['0.0.0.0', 'localhost',
                  'ghoschts-django-twitter.herokuapp.com']
