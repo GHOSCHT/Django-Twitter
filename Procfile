@@ -1,1 +1,1 @@
-web: gunicorn testadsfashdfltest.wsgi 
+web: gunicorn main.wsgi
