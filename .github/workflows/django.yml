@@ -26,6 +26,7 @@ jobs:
         python -m pip install --upgrade pip
         pip install pipenv
         pipenv install
+        pipenv shell
     - name: Run Tests
       run: |
         python manage.py test
