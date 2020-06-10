@@ -27,8 +27,7 @@ SECRET_KEY = os.environ.get("secret_key")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ghoschts-django-twitter.herokuapp.com',
-                 'localhost', '127.0.0.1', '0.0.0.0', ]
+ALLOWED_HOSTS = [".herokuapp.com"]
 
 
 # Application definition
