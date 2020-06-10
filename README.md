@@ -3,5 +3,6 @@
 [![CodeFactor](https://www.codefactor.io/repository/github/ghoscht/django-twitter/badge)](https://www.codefactor.io/repository/github/ghoscht/django-twitter)
 [![License: WTFPL](https://img.shields.io/badge/License-WTFPL-brightgreen.svg)](http://www.wtfpl.net/about/)
 
-# Requirements
-Set environment variables in twitterAPI/twitterLogin.py for Twitter API authentication as well as secret_key in main/settings.py
+# Installation
+- ``pipenv install`` to instal all required modules
+- Set environment variables in twitterAPI/twitterLogin.py for Twitter API authentication as well as the secret_key in main/settings.py
