@@ -1,0 +1,14 @@
+language: python
+
+python:
+    - "3.8.2"
+
+install: 
+    - pipenv shell
+    - pipenv install
+
+before_script:
+  - psql -c "CREATE DATABASE mydb;" -U postgres
+
+script:
+  - python manage.py syncdb --noinput
