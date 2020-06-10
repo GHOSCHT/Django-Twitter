@@ -23,7 +23,7 @@ def validateUser(username):
         api = apiLogin()
         user = api.get_user(username)
         return True
-    except:  # Fix someday -> add specific exception
+    except tweepy.error.TweepError:
         return False
 
 
@@ -50,7 +50,7 @@ def getUserData(username):
     try:
         profile_banner_url = user.profile_banner_url
         profile_avatar_url = user.profile_image_url.replace("_normal", "")
-    except:  # Fix someday -> add specific exception
+    except AttributeError:
         profile_banner_url = "https://images.hdqwalls.com/download/abstract-minimal-blur-5k-jj-2560x1440.jpg"
         profile_avatar_url = "https://abs.twimg.com/sticky/default_profile_images/default_profile_400x400.png"
 
