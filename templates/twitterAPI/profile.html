@@ -63,12 +63,12 @@
     <li class="waves-effect"><a href="?page={{ user_timeline.previous_page_number }}"><i
                 class="material-icons">chevron_left</i></a></li>
     {% else %}
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+    <li class="disabled"><a href="javascript:;"><i class="material-icons">chevron_left</i></a></li>
     {% endif %}
 
     {% for i in user_timeline.paginator.page_range %}
     {% if user_timeline.number == i %}
-    <li class="active blue lighten-1"><a href="#!">{{ i }}</a></li>
+    <li class="active blue lighten-1"><a href="javascript:;">{{ i }}</a></li>
     {% else %}
     <li class="waves-effect"><a href="?page={{ i }}">{{ i }}</a></li>
     {% endif %}
@@ -78,7 +78,7 @@
     <li class="waves-effect"><a href="?page={{ user_timeline.next_page_number }}"><i
                 class="material-icons">chevron_right</i></a></li>
     {% else %}
-    <li class="disabled"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+    <li class="disabled"><a href="javascript:;"><i class="material-icons">chevron_right</i></a></li>
     {% endif %}
 </ul>
 {% endif %}
