@@ -1,9 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect, HttpResponse
+from django.http import HttpResponseRedirect
 
 from . import twitterLogin as loginData
 import tweepy
-import datetime
 import locale
 
 # Custom functions
@@ -21,7 +20,7 @@ def apiLogin():
 def validateUser(username):
     try:
         api = apiLogin()
-        user = api.get_user(username)
+        api.get_user(username)
         return True
     except tweepy.error.TweepError:
         return False
