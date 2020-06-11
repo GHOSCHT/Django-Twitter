@@ -7,4 +7,8 @@
 # Installation
 - ``pipenv install`` to instal all required modules
 - ``py manage.py collectstatic`` to collect all static files
-- Set environment variables in twitterAPI/twitterLogin.py for Twitter API authentication as well as the secret_key in main/settings.py
+- Set environment variables
+### Enviornment variables
+- consumer_key, consumer_secret, access_token, access_token_secret for Twitter API authentication
+- secret_key
+- HEROKU_DEPLOY when deployed on heroku(necessary for database)
