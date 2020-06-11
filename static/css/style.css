@@ -8,7 +8,7 @@ main {
   flex: 1 0 auto;
 }
 
-.input-field input[type=text]:focus {
+.input-field input[type="text"]:focus {
   border-bottom: 1px solid #42a5f5 !important;
   box-shadow: 0 1px 0 0 #42a5f5 !important;
 }
@@ -76,11 +76,9 @@ main {
   #avatar {
     height: 180px;
   }
-
   .brand-logo {
     font-size: large !important;
   }
-
   h1 {
     font-size: 3em;
   }
