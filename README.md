@@ -9,6 +9,6 @@
 - ``py manage.py collectstatic`` to collect all static files
 - Set environment variables
 ### Enviornment variables
-- consumer_key, consumer_secret, access_token, access_token_secret for Twitter API authentication
-- secret_key
-- HEROKU_DEPLOY when deployed on heroku(necessary for database)
+- **consumer_key**, **consumer_secret**, **access_token**, **access_token_secret** for Twitter API authentication
+- **secret_key**
+- **HEROKU_DEPLOY** when deployed on heroku(necessary for database)
