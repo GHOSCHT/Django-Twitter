@@ -11,6 +11,7 @@ gunicorn = "*"
 django = "*"
 tweepy = "*"
 whitenoise = "*"
+dj-database-url = "*"
 
 [requires]
 python_version = "3.8"
