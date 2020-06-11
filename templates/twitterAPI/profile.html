@@ -5,10 +5,15 @@
     <div class="parallax"><img src="{{profile_banner_url}}"></div>
 </div>
 
+<script>
+  $(document).ready(function(){
+    $('.materialboxed').materialbox();
+  });
+</script>
 <div class="row">
     <div class="col s12 m4 l4 xl2">
         <div class="center">
-            <img src="{{profile_avatar_url}}" alt="avatar" id="avatar" class="nonSelectable">
+            <img src="{{profile_avatar_url}}" alt="avatar" id="avatar" class="nonSelectable materialboxed">
         </div>
     </div>
     <div class="col s12 m4 l4 xl2">
