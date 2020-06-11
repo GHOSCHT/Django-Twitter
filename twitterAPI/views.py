@@ -78,6 +78,15 @@ def getUserData(username, request):
     return user_data
 
 
+'''
+#Load max. tweets
+
+tweets = []
+
+    for status in tweepy.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended").items():
+        tweets.append(status)
+'''
+
 # Views
 
 
