@@ -6,8 +6,8 @@
 
 ## Installation
 
--   ` ` pipenv install ` ` to instal all required modules
--   ` ` py manage.py collectstatic ` ` to collect all static files
+-   `pipenv install` to instal all required modules
+-   `py manage.py collectstatic` to collect all static files
 -   Set environment variables
 
 ### Enviornment variables
