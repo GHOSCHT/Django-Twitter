@@ -2,12 +2,42 @@
 
 {% block contentContainer %}
 <h1>Welcome to Django Twitter</h1>
-<form method="POST" action="{% url "set_user"%}">
+
+<div class="row spacer">
+
+    <div class="col s4">
+        <div class="center">
+            <i class="blue-text text-darken-1 large material-icons nonselectable">message</i>
+            <p>Tweet History</p>
+            <p class="light center">View all tweets by a certain user.</p>
+        </div>
+    </div>
+
+    <div class="col s4">
+        <div class="center">
+            <i class="blue-text text-darken-1 large material-icons nonselectable">group</i>
+            <p>Follow/er Count</p>
+            <p class="light center">View the Follower/Follow count of a certain user.</p>
+        </div>
+    </div>
+
+    <div class="col s4">
+        <div class="center">
+            <i class="blue-text text-darken-1 large material-icons nonselectable">menu_book</i>
+            <p>Bio Support</p>
+            <p class="light center">Django Twitter enables you to easily view the current bio of a certain user.</p>
+        </div>
+    </div>
+</div>
+
+
+<form method="POST" action="{% url "set_user"%}" class="spacer" id="search">
     {% csrf_token %}
-    <input type="text" name="twitterHandle" placeholder="Twitter Username">
-    <button class="btn waves-effect waves-light blue lighten-1" type="submit" name="submit">Submit
+    <div class="input-field">
+        <input type="text" name="twitterHandle" placeholder="Twitter Username">
+    </div>
+    <button class="btn waves-effect waves-light blue lighten-1" type="submit" name="submit">Search
         <i class="material-icons right">send</i>
     </button>
 </form>
-
 {% endblock contentContainer %}

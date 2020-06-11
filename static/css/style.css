@@ -8,6 +8,15 @@ main {
   flex: 1 0 auto;
 }
 
+.input-field input[type=text]:focus {
+  border-bottom: 1px solid #42a5f5 !important;
+  box-shadow: 0 1px 0 0 #42a5f5 !important;
+}
+
+.spacer {
+  margin-top: 8vh;
+}
+
 .parallax-container {
   height: 400px;
 }
@@ -23,6 +32,10 @@ main {
   user-select: none;
 }
 
+.btn {
+  border-radius: 3em !important;
+}
+
 #bio {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -34,6 +47,10 @@ main {
   height: 180px;
   margin-top: 15px;
   border-radius: 5%;
+}
+
+#search {
+  margin-bottom: 8vh;
 }
 
 @media only screen and (max-width: 1200px) {
