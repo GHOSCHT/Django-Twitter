@@ -1,68 +1,68 @@
 body {
-    display: flex;
-    min-height: 100vh;
-    flex-direction: column;
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 main {
-    flex: 1 0 auto;
+  flex: 1 0 auto;
 }
 
 .parallax-container {
-    height: 400px;
+  height: 400px;
 }
 
 .sidenav {
-    width: 220px;
+  width: 220px;
 }
 
 .nonSelectable {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
 #bio {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 #avatar {
-    height: 180px;
-    margin-top: 15px;
-    border-radius: 5%;
+  height: 180px;
+  margin-top: 15px;
+  border-radius: 5%;
 }
 
 @media only screen and (max-width: 1200px) {
-    #avatar {
-        height: 380px;
-    }
+  #avatar {
+    height: 380px;
+  }
 }
 
 @media only screen and (max-width: 992px) {
-    #avatar {
-        height: 320px;
-    }
+  #avatar {
+    height: 320px;
+  }
 }
 
 @media only screen and (max-width: 750px) {
-    #avatar {
-        margin-top: 50px;
-        height: 230px;
-    }
+  #avatar {
+    margin-top: 50px;
+    height: 230px;
+  }
 }
 
 @media only screen and (max-width: 600px) {
-    #avatar {
-        height: 180px;
-    }
-    .brand-logo {
-        font-size: large !important;
-    }
-    h1 {
-        font-size: 3em;
-    }
+  #avatar {
+    height: 180px;
+  }
+  .brand-logo {
+    font-size: large !important;
+  }
+  h1 {
+    font-size: 3em;
+  }
 }
