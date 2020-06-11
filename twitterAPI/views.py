@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
 
 from . import twitterLogin as loginData
 import tweepy
@@ -40,7 +41,7 @@ def replaceInvalidCharacters(username):
     return username.replace("@", "")
 
 
-def getUserData(username):
+def getUserData(username, request):
     api = apiLogin()
     user = api.get_user(username)
 
@@ -55,6 +56,16 @@ def getUserData(username):
 
     locale.setlocale(locale.LC_ALL, '')
 
+    user_timeline = api.user_timeline(username, count=400)
+    paginator = Paginator(user_timeline, 50)
+    page = request.GET.get("page", 1)
+    try:
+        posts = paginator.page(page)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+
     user_data = {"username": username,
                  "display_name": user.name,
                  "description": user.description,
@@ -62,7 +73,7 @@ def getUserData(username):
                  "profile_avatar_url": profile_avatar_url,
                  "follower_count": f'{user.followers_count:n}',
                  "follow_count": f'{user.friends_count:n}',
-                 "user_timeline": api.user_timeline(username, count=200),
+                 "user_timeline": posts,
                  }
     return user_data
 
@@ -92,5 +103,5 @@ def profile(request):
     if(username is None):
         return HttpResponseRedirect("/")
 
-    user_data = getUserData(username)
+    user_data = getUserData(username, request)
     return render(request, "twitterAPI/profile.html", user_data)
