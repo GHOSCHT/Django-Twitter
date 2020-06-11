@@ -11,4 +11,4 @@
 ### Enviornment variables
 - **consumer_key**, **consumer_secret**, **access_token**, **access_token_secret** for Twitter API authentication
 - **secret_key**
-- **HEROKU_DEPLOY** when deployed on heroku(necessary for database)
+- **HEROKU_DEPLOY** when deployed on heroku (value isn't important)
