@@ -6,4 +6,5 @@
 
 # Installation
 - ``pipenv install`` to instal all required modules
+- ``py manage.py collectstatic`` to collect all static files
 - Set environment variables in twitterAPI/twitterLogin.py for Twitter API authentication as well as the secret_key in main/settings.py
