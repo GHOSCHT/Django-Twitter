@@ -21,8 +21,5 @@ from django.conf import settings
 
 
 urlpatterns = [
-    path("", include("twitterAPI.urls")),
-
-    re_path(r'^static/(?P<path>.*)$', serve,
-            {'document_root': settings.STATIC_ROOT}),
+    path("", include("twitterAPI.urls"))
 ]
