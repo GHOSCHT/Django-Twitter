@@ -47,7 +47,7 @@ def replace_invalid_characters(username):
     return username.replace("@", "")
 
 
-def get_user_data(username, request):
+def get_user_data(username, request, refresh=False):
     api = api_authentication()
     user = api.get_user(username)
 
@@ -64,7 +64,7 @@ def get_user_data(username, request):
 
     cached_data = get_cached_timeline(username)
 
-    if(cached_data == None):
+    if(cached_data == None or refresh == True):
         user_timeline = [tweet for tweet in tweepy.Cursor(
             api.user_timeline, screen_name=username, tweet_mode="extended").items(TWEET_AMOUNT)]
         cache_timeline(username, user_timeline)
@@ -103,7 +103,6 @@ def get_cached_timeline(username):
 
 # Views
 
-
 def home(request):
     return render(request, "twitterAPI/home.html")
 
@@ -121,10 +120,14 @@ def set_user(request):
 
 
 def profile(request):
+
     username = get_username(request)
 
     if(username is None):
         return HttpResponseRedirect("/")
 
-    user_data = get_user_data(username, request)
-    return render(request, "twitterAPI/profile.html", user_data)
+    if(request.POST.get("refresh") == "refresh"):
+        get_user_data(username, request, True)
+        return HttpResponseRedirect('profile')
+    else:
+        return render(request, "twitterAPI/profile.html", get_user_data(username, request))

@@ -1,6 +1,17 @@
 {% extends 'base.html' %}
 
 {% block contentNoContainer %}
+
+<div class="fixed-action-btn">
+    <form method="POST" action="{% url "profile"%}">
+        {% csrf_token %}
+        <button class="btn-floating btn-large blue darken-1" type="submit" name="refresh" value="refresh"
+            id="refresh-btn" onclick="this.style.visibility='hidden'">
+            <i class="large material-icons nonSelectable">refresh</i>
+        </button>
+    </form>
+</div>
+
 <div class="parallax-container">
     <div class="parallax"><img src="{{profile_banner_url}}"></div>
 </div>
