@@ -1,15 +1,21 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.core.paginator import EmptyPage, PageNotAnInteger, Paginator
+from django.core.cache import cache
 
 from . import twitterLogin as loginData
 import tweepy
 import locale
 
+# Parameters
+TWEETS_PER_PAGE = 30
+TWEET_AMOUNT = 200
+CACHE_DURATION = 300
+
+
 # Custom functions
 
-
-def apiLogin():
+def api_authentication():
     auth = tweepy.OAuthHandler(
         loginData.consumer_key, loginData.consumer_secret)
     auth.set_access_token(loginData.access_token,
@@ -18,34 +24,34 @@ def apiLogin():
     return api
 
 
-def validateUser(username):
+def validate_user(username):
     try:
-        api = apiLogin()
+        api = api_authentication()
         api.get_user(username)
         return True
     except tweepy.error.TweepError:
         return False
 
 
-def getUsername(request):
+def get_username(request):
     if "username" in request.session:
         return request.session["username"]
     return None
 
 
-def setUser(request, username):
+def set_username(request, username):
     request.session["username"] = username.lower()
 
 
-def replaceInvalidCharacters(username):
+def replace_invalid_characters(username):
     return username.replace("@", "")
 
 
-def getUserData(username, request):
-    api = apiLogin()
+def get_user_data(username, request):
+    api = api_authentication()
     user = api.get_user(username)
 
-    username = replaceInvalidCharacters(username)
+    username = replace_invalid_characters(username)
 
     try:
         profile_banner_url = user.profile_banner_url
@@ -56,9 +62,18 @@ def getUserData(username, request):
 
     locale.setlocale(locale.LC_ALL, '')
 
-    user_timeline = api.user_timeline(username, count=400)
-    paginator = Paginator(user_timeline, 50)
+    cached_data = get_cached_timeline(username)
+
+    if(cached_data == None):
+        user_timeline = [tweet for tweet in tweepy.Cursor(
+            api.user_timeline, screen_name=username, tweet_mode="extended").items(TWEET_AMOUNT)]
+        cache_timeline(username, user_timeline)
+    else:
+        user_timeline = cached_data
+
+    paginator = Paginator(user_timeline, TWEETS_PER_PAGE)
     page = request.GET.get("page", 1)
+
     try:
         posts = paginator.page(page)
     except PageNotAnInteger:
@@ -78,14 +93,13 @@ def getUserData(username, request):
     return user_data
 
 
-'''
-#Load max. tweets
+def cache_timeline(username, user_timeline):
+    cache.set(username, user_timeline, CACHE_DURATION)
 
-tweets = []
 
-    for status in tweepy.Cursor(api.user_timeline, screen_name=username, tweet_mode="extended").items():
-        tweets.append(status)
-'''
+def get_cached_timeline(username):
+    return cache.get(username)
+
 
 # Views
 
@@ -97,8 +111,8 @@ def home(request):
 def set_user(request):
     username = request.POST.get("twitterHandle")
 
-    if validateUser(username):
-        setUser(request, username)
+    if validate_user(username):
+        set_username(request, username)
         response = HttpResponseRedirect("profile")
     else:
         response = HttpResponseRedirect("/")
@@ -107,10 +121,10 @@ def set_user(request):
 
 
 def profile(request):
-    username = getUsername(request)
+    username = get_username(request)
 
     if(username is None):
         return HttpResponseRedirect("/")
 
-    user_data = getUserData(username, request)
+    user_data = get_user_data(username, request)
     return render(request, "twitterAPI/profile.html", user_data)
