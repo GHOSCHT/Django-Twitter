@@ -36,6 +36,11 @@ main {
   border-radius: 3em;
 }
 
+.pagination {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
 #bio {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -73,15 +78,15 @@ main {
 }
 
 @media only screen and (max-width: 600px) {
-  #avatar {
-    height: 180px;
-  }
-
   nav .brand-logo {
     font-size: large;
   }
 
   h1 {
     font-size: 3em;
+  }
+
+  #avatar {
+    height: 180px;
   }
 }
