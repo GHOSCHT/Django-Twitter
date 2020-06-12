@@ -8,9 +8,9 @@ main {
   flex: 1 0 auto;
 }
 
-.input-field input[type="text"]:focus {
-  border-bottom: 1px solid #42a5f5 !important;
-  box-shadow: 0 1px 0 0 #42a5f5 !important;
+.input-field input[type="text"]:focus:not([readonly]) {
+  border-bottom: 1px solid #42a5f5;
+  box-shadow: 0 1px 0 0 #42a5f5;
 }
 
 .spacer {
@@ -33,7 +33,7 @@ main {
 }
 
 .btn {
-  border-radius: 3em !important;
+  border-radius: 3em;
 }
 
 #bio {
@@ -77,8 +77,8 @@ main {
     height: 180px;
   }
 
-  .brand-logo {
-    font-size: large !important;
+  nav .brand-logo {
+    font-size: large;
   }
 
   h1 {
