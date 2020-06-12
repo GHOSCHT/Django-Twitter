@@ -45,18 +45,15 @@
     <div class="collection">
         {% for post in user_timeline %}
         <a href="https://twitter.com/{{username}}/status/{{post.id_str}}"
-            class="collection-item grey-text text-darken-4">{{post.text}}</a>
+            class="collection-item grey-text text-darken-4">{{post.full_text}}</a>
         {% endfor %}
     </div>
 </div>
 
-<ul class="pagination">
-
-</ul>
-
 {% endblock contentNoContainer %}
 
 {% block contentContainer %}
+
 {% if user_timeline.has_other_pages %}
 <ul class="pagination center">
     {% if user_timeline.has_previous %}
@@ -82,4 +79,5 @@
     {% endif %}
 </ul>
 {% endif %}
+
 {% endblock contentContainer %}
