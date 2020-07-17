@@ -64,7 +64,6 @@ main {
 
 #profile-link {
   color: #1e88e5;
-  font-weight: bold !important;
 }
 
 @media only screen and (max-width: 1200px) {
