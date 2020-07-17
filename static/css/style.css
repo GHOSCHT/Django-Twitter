@@ -13,10 +13,6 @@ main {
   box-shadow: 0 1px 0 0 #42a5f5;
 }
 
-.title {
-  font-weight: bold;
-}
-
 .spacer {
   margin-top: 8vh;
 }
@@ -60,11 +56,6 @@ main {
 
 #search {
   margin-bottom: 8vh;
-}
-
-#profile-link {
-  color: #1e88e5;
-  font-weight: bold !important;
 }
 
 @media only screen and (max-width: 1200px) {
