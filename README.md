@@ -21,12 +21,6 @@ git clone https://github.com/GHOSCHT/material-ui-todo-list.git
 pipenv install
 ```
 
-2.  Install all required modules
-
-```sh
-pipenv install
-```
-
 3.  Collect all static files
 
 ```sh
