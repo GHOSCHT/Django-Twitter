@@ -1,4 +1,6 @@
-# Django-Twitter
+<p align="center">
+   <img src="./img/header.png" height=120>
+</p>
 
 [![Website shields.io](https://img.shields.io/website-up-down-success-red/http/shields.io.svg)](https://ghoschts-django-twitter.herokuapp.com/)
 [![Django CI](https://github.com/GHOSCHT/Django-Twitter/workflows/Django%20CI/badge.svg)](https://github.com/GHOSCHT/Django-Twitter/actions?query=workflow%3A%22Django+CI%22)
